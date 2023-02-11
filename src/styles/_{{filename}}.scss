@@ -15,5 +15,9 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
+i[class^="{{prefix}}"], i[class^="{{prefix}}-"], i[class*=" {{prefix}}-"] {
+  line-height: 100%;
+}
+
 {{cssString}}
 {{cssToVars}}

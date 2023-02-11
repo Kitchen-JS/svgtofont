@@ -21,9 +21,7 @@ Used on https://github.com/PEC-Developement-Team/PEC-Icons
   
   npm install grunt
   
-  npm install --save @uiw/react-github-corners 
-  
-  Copy styles folder from svgtofont node package to root of project
+  npm install --save @uiw/react-github-corners
   
   For Usage see https://github.com/MrRedBeard/svgtofont-test
   
