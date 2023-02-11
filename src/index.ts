@@ -171,6 +171,13 @@ export default async (options: SvgToFontOptions = {}) => {
       await createTypescript({ ...options, typescript: options.typescript })
     }
 
+    let jsFileName = options.fontName + '.js';
+    let jsPath = path.join(options.dist, jsFileName);
+    //Output JS
+    let tempJS = `const ${options.fontName} = {${jsString.join(',')}};`;
+    fs.outputFileSync(jsPath, tempJS);
+    console.log(`${color.green('SUCCESS')} Created ${jsPath} `);
+
     if (options.outSVGPath) {
       const outPath = await generateIconsSource(options);
       console.log(`${color.green('SUCCESS')} Created ${outPath} `);
