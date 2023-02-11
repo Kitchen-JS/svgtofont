@@ -2,7 +2,7 @@
   "name": "svgtofont",
   "version": "3.13.1",
   "description": "Converts SVG to TTF/EOT/WOFF/WOFF2/SVG format fonts.",
-  "homepage": "https://jaywcjlove.github.io/svgtofont/",
+  "homepage": "https://github.com/Kitchen-JS/svgtofont",
   "main": "lib/index.js",
   "bin": {
     "svgtofont": "lib/cli.js"
@@ -18,10 +18,10 @@
     "test": "tsbb test",
     "coverage": "tsbb test --coverage"
   },
-  "author": "Kenny <wowohoo@qq.com>",
+  "author": "Britton <britton@x2labs.com>",
   "repository": {
     "type": "git",
-    "url": "https://github.com/jaywcjlove/svgtofont.git"
+    "url": "https://github.com/Kitchen-JS/svgtofont.git"
   },
   "svgtofont": {
     "css": {

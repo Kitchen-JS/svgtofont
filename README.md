@@ -6,6 +6,12 @@ Used on https://github.com/PEC-Developement-Team/PEC-Icons
     Visit the original
   </a>
 
+### Development
+
+  npm install
+
+  npm update
+
 ### Install:
 
   npm init
