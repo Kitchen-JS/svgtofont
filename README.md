@@ -4,12 +4,11 @@ Used on https://github.com/PEC-Developement-Team/PEC-Icons
 
 <a href="https://github.com/jaywcjlove/svgtofont/">
     Visit the original
-  </a>
+</a>
 
 ### Development
 
   npm install
-
   npm update
 
 ### Install:
@@ -24,10 +23,9 @@ Used on https://github.com/PEC-Developement-Team/PEC-Icons
   
   npm install --save @uiw/react-github-corners 
   
-  
   Copy styles folder from svgtofont node package to root of project
   
-  For Usage see https://github.com/MrRedBeard/svgtofont_usage
+  For Usage see https://github.com/MrRedBeard/svgtofont-test
   
 -------------------------------------------------------------------------------------
   

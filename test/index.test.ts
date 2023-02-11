@@ -13,19 +13,20 @@ it('example test case.', async () => {
     dist: dist,
     fontName: "svgtofont", // font name
     css: true, // Create CSS files.
-    outSVGReact: true,
+    outSVGReact: false,
     outSVGPath: true,
     svgicons2svgfont: {
       fontHeight: 1000,
       normalize: true
     },
-    typescript: true,
-    website: null
+    typescript: true
   });
   const fileNames = await fs.readdir(dist);
+  //Test 1
   expect(fileNames).toEqual([
     'react',
     'svgtofont.css',
+    'svgtofont.js',
     'svgtofont.d.ts',
     'svgtofont.eot',
     'svgtofont.json',
@@ -51,11 +52,13 @@ it('example simple test case.', async () => {
     fontName: 'svgtofont',
     css: false,
     emptyDist: true,
-    typescript: true,
+    typescript: true
   });
   const fileNames = await fs.readdir(dist);
+  //Test 2
   expect(fileNames).toEqual([
     'svgtofont.css',
+    'svgtofont.js',
     'svgtofont.d.ts',
     'svgtofont.eot',
     'svgtofont.less',
@@ -79,11 +82,13 @@ it('templates simple test case.', async () => {
     dist: dist,
     styleTemplates: path.resolve(process.cwd(), 'test', 'templates', 'styles'),
     fontName: 'svgtofont',
-    emptyDist: true,
+    emptyDist: true
   });
   const fileNames = await fs.readdir(dist);
+  //Test 3
   expect(fileNames).toEqual([
     'svgtofont.css',
+    'svgtofont.js',
     'svgtofont.eot',
     'svgtofont.less',
     'svgtofont.module.less',
@@ -93,7 +98,7 @@ it('templates simple test case.', async () => {
     'svgtofont.symbol.svg',
     'svgtofont.ttf',
     'svgtofont.woff',
-    'svgtofont.woff2',
+    'svgtofont.woff2'
   ]);
   const css = await fs.readFile(path.resolve(dist, 'svgtofont.css'));
   expect(css.toString().indexOf('Hello CSS!') > -1).toBeTruthy();
@@ -111,11 +116,13 @@ it('example simple test case for useNameAsUnicode.', async () => {
     classNamePrefix: 'my-icons',
     useNameAsUnicode: true,
     emptyDist: true,
-    typescript: true,
+    typescript: true
   });
   const fileNames = await fs.readdir(dist);
+  //Test 4
   expect(fileNames).toEqual([
     'nameAsUnicode.css',
+    'nameAsUnicode.js',
     'nameAsUnicode.d.ts',
     'nameAsUnicode.eot',
     'nameAsUnicode.less',
@@ -126,7 +133,7 @@ it('example simple test case for useNameAsUnicode.', async () => {
     'nameAsUnicode.symbol.svg',
     'nameAsUnicode.ttf',
     'nameAsUnicode.woff',
-    'nameAsUnicode.woff2',
+    'nameAsUnicode.woff2'
   ]);
   const css = await fs.readFile(path.resolve(dist, 'nameAsUnicode.css'));
   // should contain a class with the prefix or the font name, in this case we provided a prefix so we should get that
