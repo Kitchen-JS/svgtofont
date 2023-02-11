@@ -192,7 +192,7 @@ svgtofont({
 ## API
 
 ```js
-import { createSVG, createTTF, createEOT, createWOFF, createWOFF2, createSvgSymbol, copyTemplate, createHTML } from 'svgtofont/lib/utils';
+import { createSVG, createTTF, createEOT, createWOFF, createWOFF2, createSvgSymbol, copyTemplate } from 'svgtofont/lib/utils';
 
 const options = { ... };
 
