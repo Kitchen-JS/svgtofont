@@ -7,7 +7,7 @@ import { SVGIcons2SVGFontOptions } from 'svgicons2svgfont';
 import color from 'colors-cli';
 import { OptimizeOptions } from 'svgo';
 import { generateIconsSource, generateReactIcons } from './generate';
-import { createSVG, createTTF, createEOT, createWOFF, createWOFF2, createSvgSymbol, copyTemplate, CSSOptions, createTypescript, TypescriptOptions } from './utils';
+import { createSVG, createTTF, createEOT, createWOFF, createWOFF2, createSvgSymbol, copyTemplate, CSSOptions, createHTML, createTypescript, TypescriptOptions } from './utils';
 
 export type SvgToFontOptions = {
   /**
@@ -88,6 +88,66 @@ export type SvgToFontOptions = {
    */
   svg2ttf?: unknown;
 
+  website?: {
+    /**
+     * Add a Github corner to your website
+     * @like https://github.com/uiwjs/react-github-corners
+     */
+    corners?: {
+      /**
+       * @example `https://github.com/jaywcjlove/svgtofont`
+       */
+      url?: string,
+      /**
+       * @default 60
+       */
+      width?: number,
+      /**
+       * @default 60
+       */
+      height?: number,
+      /**
+       * @default #151513
+       */
+      bgColor?: '#dc3545'
+    },
+    /**
+     * @default unicode
+     */
+    index?: 'font-class' | 'unicode' | 'symbol';
+    /**
+     * website title
+     */
+    title?: string;
+    /**
+     * @example
+     * ```js
+     * path.resolve(rootPath, "favicon.png")
+     * ```
+     */
+    favicon?: string;
+    /**
+     * Must be a .svg format image.
+     * @example
+     * ```js
+     * path.resolve(rootPath, "svg", "git.svg")
+     * ```
+     */
+    logo?: string,
+    version?: string,
+    meta?: {
+      description?: string;
+      keywords?: string;
+    },
+    description?: string;
+    template?: string;
+    footerInfo?: string;
+    links: Array<{
+      title: string;
+      url: string;
+    }>;
+  };
+
   /**
    * Create typescript file with declarations for icon classnames
    * @default false
@@ -128,6 +188,9 @@ export default async (options: SvgToFontOptions = {}) => {
     let jsString: string[] = [];
     let cssString: string[] = [];
     let cssToVars: string[] = [];
+    let cssIconHtml: string[] = [];
+    let unicodeHtml: string[] = [];
+    let symbolHtml: string[] = [];
     const prefix = options.classNamePrefix || options.fontName;
 
     Object.keys(unicodeObject).forEach(name => {
@@ -169,6 +232,78 @@ export default async (options: SvgToFontOptions = {}) => {
 
     if (options.typescript) {
       await createTypescript({ ...options, typescript: options.typescript })
+    }
+
+    if (options.website) {
+      const pageName = ['font-class', 'unicode', 'symbol'];
+      let fontClassPath = path.join(options.dist, 'index.html');
+      let unicodePath = path.join(options.dist, 'unicode.html');
+      let symbolPath = path.join(options.dist, 'symbol.html');
+      let jsFileName = options.fontName + '.js'
+      let jsPath = path.join(options.dist, jsFileName);
+
+      // setting default home page.
+      const indexName = pageName.includes(options.website.index) ? pageName.indexOf(options.website.index) : 0;
+      pageName.forEach((name, index) => {
+        const _path = path.join(options.dist, indexName === index ? 'index.html' : `${name}.html`);
+        if (name === 'font-class') fontClassPath = _path;
+        if (name === 'unicode') unicodePath = _path;
+        if (name === 'symbol') symbolPath = _path;
+      });
+      // default template
+      options.website.template = options.website.template || path.join(__dirname, 'website', 'index.ejs');
+      // template data
+      const tempData: SvgToFontOptions['website'] & {
+        fontname: string;
+        classNamePrefix: string;
+        _type: string;
+        _link: string;
+        _IconHtml: string;
+        _title: string;
+      } = {
+        meta: null,
+        links: null,
+        corners: null,
+        description: null,
+        footerInfo: null,
+        ...options.website,
+        fontname: options.fontName,
+        classNamePrefix: options.classNamePrefix,
+        _type: 'font-class',
+        _link: `${(options.css && typeof options.css !== 'boolean' && options.css.fileName) || options.fontName}.css`,
+        _IconHtml: cssIconHtml.join(''),
+        _title: options.website.title || options.fontName
+      };
+      // website logo
+      if (options.website.logo && fs.pathExistsSync(options.website.logo) && path.extname(options.website.logo) === '.svg') {
+        tempData.logo = fs.readFileSync(options.website.logo).toString();
+      }
+      // website favicon
+      if (options.website.favicon && fs.pathExistsSync(options.website.favicon)) {
+        tempData.favicon = image2uri(options.website.favicon);
+      } else {
+        tempData.favicon = '';
+      }
+      const classHtmlStr = await createHTML(options.website.template, tempData);
+      fs.outputFileSync(fontClassPath, classHtmlStr);
+      console.log(`${color.green('SUCCESS')} Created ${fontClassPath} `);
+
+      tempData._IconHtml = unicodeHtml.join('');
+      tempData._type = 'unicode';
+      const unicodeHtmlStr = await createHTML(options.website.template, tempData);
+      fs.outputFileSync(unicodePath, unicodeHtmlStr);
+      console.log(`${color.green('SUCCESS')} Created ${unicodePath} `);
+
+      tempData._IconHtml = symbolHtml.join('');
+      tempData._type = 'symbol';
+      const symbolHtmlStr = await createHTML(options.website.template, tempData);
+      fs.outputFileSync(symbolPath, symbolHtmlStr);
+      console.log(`${color.green('SUCCESS')} Created ${unicodePath} `);
+
+      //Output JS
+      let tempJS = `const ${options.fontName} = {${jsString.join(',')}};`;
+      fs.outputFileSync(jsPath, tempJS);
+      console.log(`${color.green('SUCCESS')} Created ${jsPath} `);
     }
 
     //Output JS

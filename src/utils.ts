@@ -298,6 +298,17 @@ export function copyTemplate(inDir: string, outDir: string, { _opts, ...vars }: 
   });
 };
 
+/**
+ * Create HTML
+ */
+export function createHTML(outPath: string,data: ejs.Data, options?: ejs.Options): Promise<string> {
+  return new Promise((resolve, reject) => {
+    ejs.renderFile(outPath, data, options, (err, str) => {
+      if (err) reject(err);
+      resolve(str);
+    });
+  });
+};
 
 /**
  * Create JS
