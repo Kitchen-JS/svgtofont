@@ -1,6 +1,7 @@
-https://github.com/MrRedBeard/svgtofont  
-
-Used on https://github.com/PEC-Developement-Team/PEC-Icons  
+- Library that converts 
+    - https://github.com/Kitchen-JS/svgtofont
+- Font Library output
+    - https://github.com/Kitchen-JS/svgtofont-test
 
 <a href="https://github.com/jaywcjlove/svgtofont/">
     Visit the original
