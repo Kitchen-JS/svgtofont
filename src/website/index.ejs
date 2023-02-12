@@ -90,6 +90,7 @@
     <h1><%=_title%><sup><%-version%></sup></h1>
     <div class="info">
       <%-description || (meta && meta.description)%>
+      <span class="count"></span>
     </div>
     <p>
       <%if(links && links.length > 0) { links.forEach((linkItem, index) => {%>
