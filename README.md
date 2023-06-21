@@ -24,7 +24,7 @@
   
   npm install --save @uiw/react-github-corners
   
-  For Usage see https://github.com/MrRedBeard/svgtofont-test
+  // For Usage see https://github.com/MrRedBeard/svgtofont-test
   
 -------------------------------------------------------------------------------------
   
