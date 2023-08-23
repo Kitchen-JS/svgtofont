@@ -4,7 +4,7 @@
     - https://github.com/Kitchen-JS/svgtofont-test
 
 <a href="https://github.com/jaywcjlove/svgtofont/">
-    Visit the original
+    Credit to the original and the author jaywcjlove
 </a>
 
 ### Development
