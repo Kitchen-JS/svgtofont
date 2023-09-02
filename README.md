@@ -18,13 +18,11 @@
   
   npm install -g pkg
   
-  npm install https://github.com/MrRedBeard/svgtofont
+  npm install npm install https://github.com/Kitchen-JS/svgtofont/tree/master
   
   npm install grunt
   
-  // npm install --save @uiw/react-github-corners
-  
-  For Usage see https://github.com/MrRedBeard/svgtofont-test
+  For Usage see https://github.com/PEC-Development-Team/PEC-Font-Based-Icons
   
 -------------------------------------------------------------------------------------
   
