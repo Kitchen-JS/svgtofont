@@ -23,7 +23,7 @@ svgtofont({
     // Add a Github corner to your website
     // Like: https://github.com/uiwjs/react-github-corners
     corners: {
-      url: 'https://github.com/jaywcjlove/svgtofont',
+      url: 'https://github.com/Kitchen-JS/svgtofont',
       width: 62, // default: 60
       height: 62, // default: 60
       bgColor: '#dc3545' // default: '#151513'

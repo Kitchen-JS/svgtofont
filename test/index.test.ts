@@ -25,7 +25,7 @@ it('example test case.', async () => {
       // Add a Github corner to your website
       // Like: https://github.com/uiwjs/react-github-corners
       corners: {
-        url: 'https://github.com/jaywcjlove/svgtofont',
+        url: 'https://github.com/Kitchen-JS/svgtofont',
         width: 62, // default: 60
         height: 62, // default: 60
         bgColor: '#dc3545' // default: '#151513'
@@ -43,11 +43,11 @@ it('example test case.', async () => {
       links: [
         {
           title: "GitHub",
-          url: "https://github.com/jaywcjlove/svgtofont"
+          url: "https://github.com/Kitchen-JS/svgtofont"
         },
         {
           title: "Feedback",
-          url: "https://github.com/jaywcjlove/svgtofont/issues"
+          url: "https://github.com/Kitchen-JS/svgtofont/issues"
         },
         {
           title: "Font Class Demo",
@@ -62,7 +62,7 @@ it('example test case.', async () => {
           url: "index.html"
         }
       ],
-      footerInfo: `Licensed under MIT. (Yes it's free and <a target="_blank" href="https://github.com/jaywcjlove/svgtofont">open-sourced</a>)`
+      footerInfo: `Licensed under MIT. (Yes it's free and <a target="_blank" href="https://github.com/Kitchen-JS/svgtofont">open-sourced</a>)`
     }
   });
   const fileNames = await fs.readdir(dist);
