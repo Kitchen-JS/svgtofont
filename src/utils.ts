@@ -220,7 +220,7 @@ export function createSvgSymbol(options: SvgToFontOptions = {}) {
       if (err) {
         return reject(err);
       }
-      console.log(`${color.green('SUCCESS FUBAR')} ${color.blue('Svg Symbol')} font successfully created!\n  ╰┈▶ ${DIST_PATH}`);
+      console.log(`${color.green('SUCCESS')} ${color.blue('Svg Symbol')} font successfully created!\n  ╰┈▶ ${DIST_PATH}`);
       resolve({
         path: DIST_PATH,
         svg: $.html("svg")

@@ -9,6 +9,8 @@ import { OptimizeOptions } from 'svgo';
 import { generateIconsSource, generateReactIcons } from './generate';
 import { createSVG, createTTF, createEOT, createWOFF, createWOFF2, createSvgSymbol, copyTemplate, CSSOptions, createHTML, createTypescript, TypescriptOptions } from './utils';
 
+let pkg = {};
+
 export type SvgToFontOptions = {
   /**
    * The output directory.
@@ -158,7 +160,7 @@ export type SvgToFontOptions = {
 export default async (options: SvgToFontOptions = {}) => {
   const pkgPath = path.join(process.cwd(), 'package.json');
   if (fs.pathExistsSync(pkgPath)) {
-    const pkg = require(pkgPath);
+    pkg = require(pkgPath);
     if (pkg.svgtofont) {
       options = { ...options, ...pkg.svgtofont }
     }
@@ -217,7 +219,8 @@ export default async (options: SvgToFontOptions = {}) => {
     await createWOFF2(options, ttf);
     await createSvgSymbol(options);
 
-    if (options.css) {
+    if (options.css) 
+    {
       const styleTemplatePath = options.styleTemplates || (!options.useNameAsUnicode ? path.resolve(__dirname, 'styles') : path.resolve(__dirname, 'ligature-styles'));
       await copyTemplate(styleTemplatePath, options.dist, {
         fontname: options.fontName,
@@ -303,6 +306,9 @@ export default async (options: SvgToFontOptions = {}) => {
       //Output JS
       console.log(options);
       let tempJS = `
+      /**
+       * ${options.fontName} v${pkg.version}
+       */
       const ${options.fontName} = {${jsString.join(',')}};`;
       fs.outputFileSync(jsPath, tempJS);
       console.log(`${color.green('SUCCESS')} Created ${jsPath} `);
