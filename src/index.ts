@@ -301,7 +301,9 @@ export default async (options: SvgToFontOptions = {}) => {
       console.log(`${color.green('SUCCESS')} Created ${unicodePath} `);
 
       //Output JS
-      let tempJS = `const ${options.fontName} = {${jsString.join(',')}};`;
+      console.log(options);
+      let tempJS = `
+      const ${options.fontName} = {${jsString.join(',')}};`;
       fs.outputFileSync(jsPath, tempJS);
       console.log(`${color.green('SUCCESS')} Created ${jsPath} `);
     }
