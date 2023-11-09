@@ -10,13 +10,13 @@
   "scripts": {
     "prepare": "npm run build && npm run start",
     "start": "node lib/index.js",
-    "watch": "tsbb watch --disable-babel -f src/index.ts -f src/cli.ts",
-    "build": "tsbb build --disable-babel -f src/index.ts -f src/cli.ts",
+    "watch": "node ./node_modules/tsbb/bin/tsbb watch --disable-babel -f src/index.ts -f src/cli.ts",
+    "build": "node ./node_modules/tsbb/bin/tsbb build --disable-babel -f src/index.ts -f src/cli.ts",
     "example": "node test/example/index.js",
     "example:templates": "node test/templates/index.js",
     "pretest": "npm run example && npm run example:templates",
-    "test": "tsbb test",
-    "coverage": "tsbb test --coverage"
+    "test": "./node_modules/tsbb/bin/tsbb test",
+    "coverage": "./node_modules/tsbb/bin/tsbb test --coverage"
   },
   "author": "Britton <britton@x2labs.com>",
   "repository": {
@@ -76,7 +76,10 @@
     "fs-extra": "10.0.0",
     "grunt": "^1.6.1",
     "image2uri": "1.0.5",
+    "map-obj": "^5.0.2",
     "move-file": "2.1.0",
+    "source-map-resolve": "^0.6.0",
+    "source-map-url": "^0.4.1",
     "svg2ttf": "6.0.3",
     "svgicons2svgfont": "10.0.5",
     "svgo": "2.8.0",
