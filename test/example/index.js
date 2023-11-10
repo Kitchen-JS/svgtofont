@@ -5,8 +5,8 @@ const pkg = require('../../package.json');
 const rootPath = path.resolve(process.cwd(), "test", "example");
 
 svgtofont({
-  src: path.resolve(rootPath, "svg"), // svg path
-  dist: path.resolve(rootPath, "dist"), // output path
+  src: path.resolve(process.cwd(), "svg"), // path.resolve(rootPath, "svg"), // svg path
+  dist: path.resolve(process.cwd(), "dist"), //path.resolve(rootPath, "dist"), // output path
   // emptyDist: true, // Clear output directory contents
   fontName: "svgtofont", // font name
   css: true, // Create CSS files.

@@ -175,6 +175,7 @@ export default async (options: SvgToFontOptions = {}) => {
   options.svgicons2svgfont = options.svgicons2svgfont || {};
   options.svgicons2svgfont.fontName = options.fontName;
   options.classNamePrefix = options.classNamePrefix || options.fontName;
+  options.version = pkg.version;
   const fontSize = options.css && typeof options.css !== 'boolean' && options.css.fontSize ? options.css.fontSize : '16px';
   // If you generate a font you need to generate a style.
   if (!options.css) options.css = true;
@@ -219,11 +220,16 @@ export default async (options: SvgToFontOptions = {}) => {
     await createWOFF2(options, ttf);
     await createSvgSymbol(options);
 
+
+    /** ${options.fontName} v${pkg.version}
+* ${options.website.links[0].url} */
+
     if (options.css) 
     {
       const styleTemplatePath = options.styleTemplates || (!options.useNameAsUnicode ? path.resolve(__dirname, 'styles') : path.resolve(__dirname, 'ligature-styles'));
       await copyTemplate(styleTemplatePath, options.dist, {
         fontname: options.fontName,
+        version: pkg.version,
         cssString: cssString.join(''),
         cssToVars: cssToVars.join(''),
         fontSize: fontSize,
@@ -305,11 +311,12 @@ export default async (options: SvgToFontOptions = {}) => {
 
     /**************************************************************************************/
     //Output JS
-    let tempJS = `
-    /**
-      * ${options.fontName} v${pkg.version}
-      */
-    const ${options.fontName} = {${jsString.join(',')}};`;
+    let tempJS = `/**
+* ${options.fontName} v${pkg.version}
+* ${options.website.links[0].url}
+*/
+
+const ${options.fontName} = {${jsString.join(',')}};`;
     fs.outputFileSync(jsPath, tempJS);
     console.log(`${color.green('SUCCESS')} Created ${jsPath} `);
     /**************************************************************************************/
@@ -319,9 +326,12 @@ export default async (options: SvgToFontOptions = {}) => {
     let jsFileName = options.fontName + '.js';
     let jsPath = path.join(options.dist, jsFileName);
     let tempJS = `/**
-    * ${options.fontName} v${pkg.version}
-    */
-    const ${options.fontName} = {${jsString.join(',')}};`;
+* ${options.fontName} v${pkg.version}
+* ${options.website.links[0].url}
+*/
+
+const ${options.fontName} = {${jsString.join(',')}};`;
+
     fs.outputFileSync(jsPath, tempJS);
     console.log(`${color.green('SUCCESS')} Created ${jsPath} `);
 

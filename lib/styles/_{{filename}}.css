@@ -1,3 +1,6 @@
+/*
+{{fontname}} v{{version}}
+*/
 @font-face {
   font-family: "{{fontname}}";
   src: url('{{cssPath}}{{fontname}}.eot?t={{timestamp}}'); /* IE9*/
