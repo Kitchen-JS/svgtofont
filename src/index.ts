@@ -230,6 +230,7 @@ export default async (options: SvgToFontOptions = {}) => {
       await copyTemplate(styleTemplatePath, options.dist, {
         fontname: options.fontName,
         version: pkg.version,
+        url: options.website.links[0].url,
         cssString: cssString.join(''),
         cssToVars: cssToVars.join(''),
         fontSize: fontSize,
