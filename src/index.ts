@@ -305,6 +305,7 @@ export default async (options: SvgToFontOptions = {}) => {
 
     /**************************************************************************************/
     //Output JS
+    fs.outputFileSync(jsPath, '');
     let jsFileName = options.fontName + '.js';
     let jsPath = path.join(options.dist, jsFileName);
     let tempJS = `
