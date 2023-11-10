@@ -305,17 +305,25 @@ export default async (options: SvgToFontOptions = {}) => {
 
     /**************************************************************************************/
     //Output JS
-    fs.outputFileSync(jsPath, '');
-    let jsFileName = options.fontName + '.js';
-    let jsPath = path.join(options.dist, jsFileName);
     let tempJS = `
     /**
+      * ${options.fontName} v${pkg.version}
+      */
+    const ${options.fontName} = {${jsString.join(',')}};`;
+    fs.outputFileSync(jsPath, tempJS);
+    console.log(`${color.green('SUCCESS')} Created ${jsPath} `);
+    /**************************************************************************************/
+    }
+
+    //Output JS
+    let jsFileName = options.fontName + '.js';
+    let jsPath = path.join(options.dist, jsFileName);
+    let tempJS = `/**
     * ${options.fontName} v${pkg.version}
     */
     const ${options.fontName} = {${jsString.join(',')}};`;
     fs.outputFileSync(jsPath, tempJS);
     console.log(`${color.green('SUCCESS')} Created ${jsPath} `);
-    /**************************************************************************************/
 
     if (options.outSVGPath) {
       const outPath = await generateIconsSource(options);
