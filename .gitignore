@@ -3,7 +3,6 @@
 
 test/example/dist
 test/templates/dist
-lib
 package-lock.json
 __snapshots__
 

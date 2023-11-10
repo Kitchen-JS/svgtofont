@@ -304,10 +304,10 @@ export default async (options: SvgToFontOptions = {}) => {
       console.log(`${color.green('SUCCESS')} Created ${unicodePath} `);
 
       //Output JS
-      console.log(options);
+      console.log('fubar' + pkg.version)
       let tempJS = `
       /**
-       * ${options.fontName} v${pkg.version}
+       * ${options.fontName} v${options.website.version}
        */
       const ${options.fontName} = {${jsString.join(',')}};`;
       fs.outputFileSync(jsPath, tempJS);
