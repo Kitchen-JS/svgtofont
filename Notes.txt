@@ -5,7 +5,6 @@ To install on a project
 npm i https://github.com/MrRedBeard/svgtofont
 
 npm install -g yarn
-npm install -g tsbb
 
 npm install
 npm run build

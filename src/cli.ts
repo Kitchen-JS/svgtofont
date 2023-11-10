@@ -21,7 +21,7 @@ const argv = yargs
   .demandOption(['output', 'sources'])
   .help('h')
   .alias('h', 'help')
-  .epilog('copyright 2019')
+  .epilog('copyright 2023')
   .argv as ArgvResult;
 
 const sourcesPath = path.join(process.cwd(), argv.sources);
