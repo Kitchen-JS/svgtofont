@@ -41,7 +41,10 @@ svgtofont({
   dist: outputPath, // output path
   // emptyDist: true, // Clear output directory contents
   fontName: (argv.fontName) || "svgfont", // font name
-  css: true, // Create CSS files.
+  //css: true, // Create CSS files.
+  css: {
+    fontSize: "6rem",
+  },
   outSVGReact: true,
   outSVGPath: true,
   svgicons2svgfont: {
