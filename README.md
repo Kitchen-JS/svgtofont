@@ -12,81 +12,19 @@
   npm install
   npm update
 
-### Install:
+### Install
 
   npm init
   
   npm install -g pkg
   
-  npm install npm install https://github.com/Kitchen-JS/svgtofont/tree/master
+  npm i https://github.com/Kitchen-JS/svgtofont
   
   npm install grunt
   
   For Usage see https://github.com/PEC-Development-Team/PEC-Font-Based-Icons
-  
--------------------------------------------------------------------------------------
 
-<p align="center">
-  <a href="https://github.com/jaywcjlove/svgtofont/actions">
-    <img src="https://github.com/jaywcjlove/svgtofont/workflows/Build/badge.svg" alt="Build & Deploy">
-  </a>
-  <a href="https://jaywcjlove.github.io/svgtofont/lcov-report/">
-    <img src="https://jaywcjlove.github.io/svgtofont/badges.svg" alt="Coverage Status">
-  </a>
-  <a href="https://gitee.com/jaywcjlove/svgtofont">
-    <img src="https://jaywcjlove.github.io/sb/ico/gitee.svg" alt="Gitee Repo">
-  </a>
-  <a href="https://uiwjs.github.io/npm-unpkg/#/pkg/svgtofont/file/README.md">
-    <img src="https://img.shields.io/badge/Open%20in-unpkg-blue" alt="Open in unpkg">
-  </a>
-  <a href="https://www.npmjs.com/package/svgtofont">
-    <img src="https://img.shields.io/npm/dm/svgtofont.svg?style=flat" alt="NPM Download">
-  </a>
-  <a href="https://www.npmjs.com/package/svgtofont">
-    <img src="https://img.shields.io/npm/v/svgtofont.svg" alt="npm version">
-  </a>
-</p>
-
-Read a set of SVG icons and ouput a TTF/EOT/WOFF/WOFF2/SVG font, Generator of fonts from SVG icons.
-
-[Install](#install) · [Usage](#using-with-nodejs) · [Command](#using-with-command) · [Font Usage](#font-usage) · [API](#api) · [options](#options) · [npm](http://npm.im/svgtofont) · [License](#license)
-
-**Features:**  
-
-- Supported font formats: `WOFF2`, `WOFF`, `EOT`, `TTF` and `SVG`.
-- Support SVG Symbol file.
-- Support [`Less`](https://github.com/less/less.js)/[`Sass`](https://github.com/sass/sass)/[`Stylus`](https://github.com/stylus/stylus).
-- Allows to use custom templates (example `css`, `less` and etc).
-- Automatically generate a preview site.
-
-```bash
-                                ╭┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈╮
-                                ┆      Project       ┆
-                                ┆                    ┆
-╭┈┈┈┈┈┈┈┈╮                      ┆   ╭┈┈┈┈┈┈┈┈┈┈┈╮    ┆
-┆iconfont┆┈┈╮                   ┆   ┆    svg    ┆┈┈╮ ┆
-╰┈┈┈┈┈┈┈┈╯  ┆  ╭┈┈┈┈┈┈┈┈┈┈┈┈╮   ┆   ╰┈┈┈┈┈┈┈┈┈┈┈╯  ┆ ┆
-            ├┈▶┆download svg┆┈┈▶┆   ╭┈┈┈┈┈┈┈┈┈┈┈╮  ┆ ┆
-╭┈┈┈┈┈┈┈┈╮  ┆  ╰┈┈┈┈┈┈┈┈┈┈┈┈╯   ┆╭┈┈┆create font┆◀┈╯ ┆
-┆icomoon ┆┈┈╯                   ┆┆  ╰┈┈┈┈┈┈┈┈┈┈┈╯    ┆
-╰┈┈┈┈┈┈┈┈╯                      ┆┆  ╭┈┈┈┈┈┈┈┈┈┈┈╮    ┆
-                                ┆╰┈▶┆ use font  ┆    ┆
-                                ┆   ╰┈┈┈┈┈┈┈┈┈┈┈╯    ┆
-                                ╰┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈╯
-```
-
-**Icon Font Created By svgtofont**
-
-- [file-icons](https://uiwjs.github.io/file-icons/) File icons in the file tree.
-- [uiw-iconfont](https://github.com/uiwjs/icons) The premium icon font for [@uiwjs](https://github.com/uiwjs) Component Library.
-- [Bootstrap Icons Font](https://github.com/uiwjs/bootstrap-icons) Official open source SVG icon library for Bootstrap.
-- [test example](./test) For a simple test example, run `npm run test` in the root directory to see the results.
-
-## Install
-
-```bash
-npm i svgtofont
-```
+## Usage
 
 #### Using With Command
 
