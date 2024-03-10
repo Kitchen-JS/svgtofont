@@ -114,7 +114,7 @@
 <script src="<%=classNamePrefix%>.js"></script>
 <script>
   let fontsEl = document.querySelector('.fonts');
-  let keys = Object.keys(fontName);
+  let keys = Object.keys(<%=classNamePrefix%>);
 
   // Number of icons
   document.querySelector('.count').innerHTML = `${keys.length} total icons`;
