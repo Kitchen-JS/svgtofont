@@ -320,11 +320,11 @@ export default async (options: SvgToFontOptions = {}) => {
 
 const ${options.fontName} = {${jsString.join(',')}};
 
-${options.fontName}[getUnicodeHtmlCode] = (iconName) =>
+${options.fontName}['getUnicodeHtmlCode'] = (iconName) =>
 {
   return ${options.fontName}[iconName];
 }
-${options.fontName}[getUnicodeChar] = (iconName) =>
+${options.fontName}['getUnicodeChar'] = (iconName) =>
 {
   return String.fromCodePoint(parseInt(${options.fontName}[iconName], 16));
 }`;
@@ -343,11 +343,11 @@ ${options.fontName}[getUnicodeChar] = (iconName) =>
 */
 
 const ${options.fontName} = {${jsString.join(',')}};
-${options.fontName}[getUnicodeHtmlCode] = (iconName) =>
+${options.fontName}['getUnicodeHtmlCode'] = (iconName) =>
 {
   return ${options.fontName}[iconName];
 }
-${options.fontName}[getUnicodeChar] = (iconName) =>
+${options.fontName}['getUnicodeChar'] = (iconName) =>
 {
   return String.fromCodePoint(parseInt(${options.fontName}[iconName], 16));
 }`;
