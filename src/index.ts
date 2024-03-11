@@ -326,8 +326,7 @@ ${options.fontName}[getUnicodeHtmlCode] = (iconName) =>
 ${options.fontName}[getUnicodeChar] = (iconName) =>
 {
   return String.fromCodePoint(parseInt(${options.fontName}[iconName], 16));
-}
-`;
+}`;
     fs.outputFileSync(jsPath, tempJS);
     console.log(`${color.green('SUCCESS')} Created ${jsPath} `);
     /**************************************************************************************/
