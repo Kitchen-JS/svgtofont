@@ -211,7 +211,7 @@ export default async (options: SvgToFontOptions = {}) => {
         cssToVars.push(`$${symbolName}: "\\${encodedCodes.toString(16)}";\n`);
       }
 
-      jsString.push(`"${symbolName}": "${encodedCodes.toString(16)}"\n`);
+      jsString.push(`"${symbolName}": "${encodedCodes.toString(16)}"`);
     });
 
     const ttf = await createTTF(options);
@@ -314,10 +314,20 @@ export default async (options: SvgToFontOptions = {}) => {
     //Output JS
     let tempJS = `/**
 * ${options.fontName} v${pkg.version}
-* ${options.website.links[0].url}
+* @lastBuild ${new Date()}
+* @link ${options.website.links[0].url}
 */
 
-const ${options.fontName} = {${jsString.join(',')}};`;
+const ${options.fontName} = {${jsString.join(',')}};
+${options.fontName}[getUnicodeHtmlCode] = (iconName) =>
+{
+  return ${options.fontName}[iconName];
+}
+${options.fontName}[getUnicodeChar] = (iconName) =>
+{
+  return String.fromCodePoint(parseInt(${options.fontName}[iconName], 16));
+}
+`;
     fs.outputFileSync(jsPath, tempJS);
     console.log(`${color.green('SUCCESS')} Created ${jsPath} `);
     /**************************************************************************************/
