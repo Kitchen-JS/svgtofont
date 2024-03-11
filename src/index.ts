@@ -319,6 +319,7 @@ export default async (options: SvgToFontOptions = {}) => {
 */
 
 const ${options.fontName} = {${jsString.join(',')}};
+
 ${options.fontName}[getUnicodeHtmlCode] = (iconName) =>
 {
   return ${options.fontName}[iconName];
@@ -337,10 +338,19 @@ ${options.fontName}[getUnicodeChar] = (iconName) =>
     let jsPath = path.join(options.dist, jsFileName);
     let tempJS = `/**
 * ${options.fontName} v${pkg.version}
+* @lastBuild ${new Date()}
 * ${options.website.links[0].url}
 */
 
-const ${options.fontName} = {${jsString.join(',')}};`;
+const ${options.fontName} = {${jsString.join(',')}};
+${options.fontName}[getUnicodeHtmlCode] = (iconName) =>
+{
+  return ${options.fontName}[iconName];
+}
+${options.fontName}[getUnicodeChar] = (iconName) =>
+{
+  return String.fromCodePoint(parseInt(${options.fontName}[iconName], 16));
+}`;
 
     fs.outputFileSync(jsPath, tempJS);
     console.log(`${color.green('SUCCESS')} Created ${jsPath} `);
