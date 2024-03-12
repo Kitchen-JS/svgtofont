@@ -7,6 +7,9 @@
     Credit to the original and the author jaywcjlove
 </a>
 
+## Build
+npm run build
+
 ### Development
 
   npm install
