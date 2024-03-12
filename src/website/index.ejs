@@ -122,6 +122,10 @@
   // List icons stored in pfi.js
   keys.forEach((icon) => 
   {
+      if(typeof <%=classNamePrefix%>[icon] === 'function')
+      {
+        return;
+      }
       let li = document.createElement('li');
       let i = document.createElement('i');
       i.classList.add(icon);
