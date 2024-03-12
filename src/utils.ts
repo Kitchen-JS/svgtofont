@@ -260,7 +260,7 @@ export type CSSOptions = {
 export function copyTemplate(inDir: string, outDir: string, { _opts, ...vars }: Record<string, any> & { _opts: CSSOptions}) {
   const removeFiles: Array<string> = [];
   return new Promise((resolve, reject) => {
-    console.log(vars)
+    //console.log(vars)
     copy(inDir, outDir, {
       ...vars,
       cssPath: _opts.cssPath || '',

@@ -10,6 +10,9 @@
 ## Build
 npm run build
 
+## Test
+npm run example
+
 ### Development
 
   npm install
