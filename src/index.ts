@@ -213,7 +213,7 @@ export default async (options: SvgToFontOptions = {}) => {
 
       //console.log(encodedCodes, encodedCodes.toString(16))
 
-      jsString.push(`"${symbolName}": {"unicode": "${encodedCodes.toString(16)}", "htmlcode": "&#${encodedCodes};", "char": "${String.fromCodePoint(parseInt(encodedCodes.toString(16), 16))}"  } `);
+      jsString.push(`"${symbolName}": {"unicode": "${encodedCodes.toString(16)}", "htmlcode": "#${encodedCodes};", "char": "${String.fromCodePoint(parseInt(encodedCodes.toString(16), 16))}"  } `);
     });
 
     const ttf = await createTTF(options);

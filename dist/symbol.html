@@ -141,8 +141,11 @@
       li.setAttribute('value', icon);
       let p = document.createElement('p');
       p.innerHTML = `${icon} <br /><br />`;
-      p.innerHTML += `<br /> &lt;i class="${icon}"&gt;&lt;/i&gt;`
+      p.innerHTML += `<br /> &lt;i class="${icon}"&gt;&lt;/i&gt;`;
       li.append(p);
+      let p2 = document.createElement('p');
+      p2.innerHTML = `&amp;${svgtofont[icon].htmlcode}`;
+      li.append(p2);
       fontsEl.querySelector('ul').append(li);        
   });
 
