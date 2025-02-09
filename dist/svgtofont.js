@@ -1,6 +1,6 @@
 /**
-* svgtofont v3.2.0
-* @lastBuild Tue Mar 12 2024 10:04:26 GMT-0500 (Central Daylight Time)
+* svgtofont v3.2.1
+* @lastBuild Sun Feb 09 2025 11:39:40 GMT-0600 (Central Standard Time)
 * https://github.com/Kitchen-JS/svgtofont
 */
 

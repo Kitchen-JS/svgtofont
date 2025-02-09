@@ -1,17 +1,17 @@
 /*
-svgtofont v3.2.0
-@lastBuild 1710255865519
+svgtofont v3.2.1
+@lastBuild 1739122780454
 https://github.com/Kitchen-JS/svgtofont
 */
 
 @font-face {
   font-family: "svgtofont";
-  src: url('svgtofont.eot?t=1710255865519'); /* IE9*/
-  src: url('svgtofont.eot?t=1710255865519#iefix') format('embedded-opentype'), /* IE6-IE8 */
-  url("svgtofont.woff2?t=1710255865519") format("woff2"),
-  url("svgtofont.woff?t=1710255865519") format("woff"),
-  url('svgtofont.ttf?t=1710255865519') format('truetype'), /* chrome, firefox, opera, Safari, Android, iOS 4.2+*/
-  url('svgtofont.svg?t=1710255865519#svgtofont') format('svg'); /* iOS 4.1- */
+  src: url('svgtofont.eot?t=1739122780454'); /* IE9*/
+  src: url('svgtofont.eot?t=1739122780454#iefix') format('embedded-opentype'), /* IE6-IE8 */
+  url("svgtofont.woff2?t=1739122780454") format("woff2"),
+  url("svgtofont.woff?t=1739122780454") format("woff"),
+  url('svgtofont.ttf?t=1739122780454') format('truetype'), /* chrome, firefox, opera, Safari, Android, iOS 4.2+*/
+  url('svgtofont.svg?t=1739122780454#svgtofont') format('svg'); /* iOS 4.1- */
 }
 
 [class^="svgtofont"], [class^="svgtofont-"], [class*=" svgtofont-"] {
